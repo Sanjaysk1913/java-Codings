@@ -73,4 +73,8 @@ public void search(int a){
         list.search(a);list.display();
         list.max();list.display();
         list.min();list.display();
-        list.reverse();System.out.println("\nREVERSE");list.display(); }}
+        list.reverse();
+        System.out.println("\nREVERSE");
+        list.display();
+    }
+}

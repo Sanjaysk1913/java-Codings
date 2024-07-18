@@ -18,4 +18,6 @@ public static void main(String[] args){
   System.out.print("Bitonic");
   else
   System.out.print("Not Bitonic");
-}}
+  
+}
+}
