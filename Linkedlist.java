@@ -50,8 +50,8 @@ class Linkedlist{
         }
         list.display();
     }
-    public void position() {
+    //public void position() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'position'");
+      //  throw new UnsupportedOperationException("Unimplemented method 'position'");
     }
-}
+//}
