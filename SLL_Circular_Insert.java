@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SLL_Circular{
+public class SLL_Circular_Insert{
     Node last;
     
     class Node{
@@ -14,7 +14,7 @@ public class SLL_Circular{
             //head = null;
         }
     }
-    SLL_Circular(){
+    SLL_Circular_Insert(){
         last = null;
     }
     public void insertbegin(int val){
@@ -27,6 +27,7 @@ public class SLL_Circular{
         else{
             newnode.next=last.next;
             last.next=newnode;
+            last=newnode;
         }
     }
     public void position(int pos , int k){
@@ -34,7 +35,7 @@ public class SLL_Circular{
         
         Node temp = last;
         
-        for (int i =1;i<pos-1;i++){
+        for (int i =1;i<pos;i++){
             temp = temp.next;
         }
         newnode.next = temp.next;
@@ -52,7 +53,7 @@ public class SLL_Circular{
     }
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
-        SLL_Circular list = new SLL_Circular();
+        SLL_Circular_Insert list = new SLL_Circular_Insert();
         
         int m = sc.nextInt();
         for (int i =0 ;i<m;i++){
