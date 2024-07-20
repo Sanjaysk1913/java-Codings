@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SLL_Circular_Insert{
+public class SLL_Circular_Delete{
     Node last;
     
     class Node{
@@ -14,7 +14,7 @@ public class SLL_Circular_Insert{
             //head = null;
         }
     }
-    SLL_Circular_Insert(){
+    SLL_Circular_Delete(){
         last = null;
     }
     public void insertbegin(int val){
@@ -30,16 +30,28 @@ public class SLL_Circular_Insert{
             last=newnode;
         }
     }
-    public void position(int pos , int k){
-        Node newnode = new Node(k);
-        
-        Node temp = last;
-        
-        for (int i =1;i<pos;i++){
-            temp = temp.next;
+    public void dbegin(){
+        last.next=last.next.next;
+    }
+    public void dend(){
+        Node temp;
+        temp=last.next;
+        while (temp.next!=last) { 
+            temp=temp.next;
         }
-        newnode.next = temp.next;
-        temp.next = newnode;
+        temp.next=last.next;
+        last=temp;
+    }
+    public void dpos(int pos){
+        Node temp; 
+        Node prev;
+        temp=last.next;
+        prev=last;
+        for(int i=0;i<pos;i++){
+            prev=temp;
+            temp=temp.next;
+        }
+        prev.next=temp.next;
     }
     public void display(){
         Node temp = last.next;
@@ -53,25 +65,17 @@ public class SLL_Circular_Insert{
     }
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
-        SLL_Circular_Insert list = new SLL_Circular_Insert();
+        SLL_Circular_Delete list = new SLL_Circular_Delete();
         
         int m = sc.nextInt();
         for (int i =0 ;i<m;i++){
             int val = sc.nextInt();
             list.insertbegin(val);
         }
-        int pos=sc.nextInt();
-        int k=sc.nextInt();
-
-        list.position(pos, k);
+        list.dbegin();
+        list.dend();
+        int v=sc.nextInt();
+        list.dpos(v);
         list.display();
-    }
-    public void dpos(int v) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'dpos'");
-    }
-    public void dbegin() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'dbegin'");
     }
 }
