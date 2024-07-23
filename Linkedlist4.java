@@ -36,7 +36,7 @@ public class Linkedlist4{
         
         Node temp = head;
         
-        for (int i =1;i<pos;i++){
+        for (int i =1;i<pos-1;i++){
             temp = temp.next;
         }
         newnode.next = temp.next;

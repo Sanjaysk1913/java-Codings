@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SLL_Circular_END{
+public class SLL_Circular_Delete_BEGIN{
     Node last;
     
     class Node{
@@ -14,7 +14,7 @@ public class SLL_Circular_END{
             //head = null;
         }
     }
-    SLL_Circular_END(){
+    SLL_Circular_Delete_BEGIN(){
         last = null;
     }
     public void insertbegin(int val){
@@ -30,6 +30,9 @@ public class SLL_Circular_END{
             last=newnode;
         }
     }
+    public void dbegin(){
+        last.next=last.next.next;
+    }
     public void display(){
         Node temp = last.next;
         
@@ -42,13 +45,14 @@ public class SLL_Circular_END{
     }
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
-        SLL_Circular_END list = new SLL_Circular_END();
+        SLL_Circular_Delete_BEGIN list = new SLL_Circular_Delete_BEGIN();
         
         int m = sc.nextInt();
         for (int i =0 ;i<m;i++){
             int val = sc.nextInt();
             list.insertbegin(val);
         }
+        list.dbegin();
         list.display();
     }
 }

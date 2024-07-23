@@ -1,6 +1,5 @@
 import java.util.Scanner;
-
-public class SLL_Circular{
+public class SLL_Circular_Sort{
     Node last;
     
     class Node{
@@ -14,10 +13,10 @@ public class SLL_Circular{
             //head = null;
         }
     }
-    SLL_Circular(){
+    SLL_Circular_Sort(){
         last = null;
     }
-    public void insertbegin(int val){
+    public void create(int val){
         Node newnode = new Node(val);
          
         if (last==null){
@@ -27,18 +26,30 @@ public class SLL_Circular{
         else{
             newnode.next=last.next;
             last.next=newnode;
+            last=newnode;
         }
     }
-    public void position(int pos , int k){
-        Node newnode = new Node(k);
-        
-        Node temp = last;
-        
-        for (int i =1;i<pos-1;i++){
-            temp = temp.next;
+    public void sort() {
+        Node current = last;
+        Node index = null;
+        int temp;
+
+        if (last == null) {
+            return;
+        } else {
+            do {
+                index = current.next;
+                while (index != last) {
+                    if (current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data; 
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            } while (current != last);
         }
-        newnode.next = temp.next;
-        temp.next = newnode;
     }
     public void display(){
         Node temp = last.next;
@@ -52,17 +63,14 @@ public class SLL_Circular{
     }
     public static void main(String args[]){
         Scanner sc = new Scanner (System.in);
-        SLL_Circular list = new SLL_Circular();
+        SLL_Circular_Sort list = new SLL_Circular_Sort();
         
         int m = sc.nextInt();
         for (int i =0 ;i<m;i++){
             int val = sc.nextInt();
-            list.insertbegin(val);
+            list.create(val);
         }
-        int pos=sc.nextInt();
-        int k=sc.nextInt();
-
-        list.position(pos, k);
+        list.sort();
         list.display();
     }
 }
